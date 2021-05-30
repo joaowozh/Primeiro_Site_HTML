@@ -25,13 +25,36 @@
 
             <div class="row">
               <div class="col">
-                    <form>
-                        <textarea placeholder="Digite seu comentário" class="form-control" rows="3"></textarea>
+                    <form action="index.html" method="GET">
+                        <textarea name="comentario" placeholder="Digite seu comentário" class="form-control" rows="3"></textarea>
                         <br/>
                         <button type="submit" class="btn btn-secondary">Cancelar</button>
                         <button type="submit" class="btn btn-primary">Comentar</button>
                     </form>
                 </div>
+                <br>
+                <strong> Comentários:</strong>
+
+                <script>
+                var getUrlParameter = function getUrlParameter(sParam) {
+    var sPageURL = window.location.search.substring(1),
+        sURLVariables = sPageURL.split('&'),
+        sParameterName,
+        i;
+
+    for (i = 0; i < sURLVariables.length; i++) {
+        sParameterName = sURLVariables[i].split('=');
+
+        if (sParameterName[0] === sParam) {
+            return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+        }
+    }
+}; 
+                comentario = getUrlParameter('comentario');
+                comentario = comentario.replaceAll("+", " ");
+                document.write(comentario);
+ 
+                 </script> 
                 <div style='text-align:right' class="row">
                     <p>Esse é meu <strong>primeiro site</strong>. <br/>por: <i><a href="https://github.com/joaowozh">@joaowozh</a><small> - com ajuda do <a href="https://github.com/aureliowozhiak">@aureliowozhiak</a></small></i> </p> 
                 </div>
